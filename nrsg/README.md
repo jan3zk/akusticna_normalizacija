@@ -4,7 +4,7 @@ Postopek temelji na algoritmu iz programa [Audacity](https://wiki.audacityteam.o
 
 ## Namestitev
 
-Za namestitev noisereduce sledite navodilom na [spletni strani](https://github.com/timsainb/noisereduce). Namestitev ostalih paketov se izvede z ukazom ```pip install -r requirements.txt```.
+Namestitev zahtevanih paketov lahko izvedemo z ukazom ```pip install -r requirements.txt```.
 
 ## NRSG na posameznem posnetku
 

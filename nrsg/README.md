@@ -12,4 +12,4 @@ Odstranitev šuma na posemeznem posnetku se izvede z ukazom ```python nrsg.py -p
 
 ## Procesiranje množice posnetkov
 
-Izvedba postopka na posnetkih v danem direktoriju se izvede z ```python run_nrsg.py -d dir/originalni/ -o dir/razsumljeni/```. Podrobnejši opis vhodnih argumentov skripte dobimo s ```python run_nrsg.py -h```.
+Izvedba postopka na posnetkih v danem direktoriju se izvede z ```python nrsg.py -p dir/originalni/ -o dir/razsumljeni/```. Podrobnejši opis vhodnih argumentov skripte dobimo s ```python nrsg.py -h```.

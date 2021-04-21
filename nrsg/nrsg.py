@@ -34,14 +34,14 @@ def nrsg(filename, border = [.5, .5], verbose = 0, save_path = ''):
 
 def main():
 
-  if os.path.isdir(args.path):
+  if os.path.isdir(args.in_path):
     folders = []
     for depth in range(args.maxdepth):
       path_str = '*' + os.sep
-      path_str = os.path.join(args.path, path_str*depth)
+      path_str = os.path.join(args.in_path, path_str*depth)
       folders += glob(path_str)
 
-    root_folder = os.path.basename(os.path.dirname(os.path.join(args.path,'')))
+    root_folder = os.path.basename(os.path.dirname(os.path.join(args.in_path,'')))
     save_dir = args.out_path
     if not os.path.isdir(save_dir):
       os.makedirs(save_dir)
@@ -60,8 +60,8 @@ def main():
           print('Odstranitev šuma NRSG za ' + fle + ' ni mogoča.'
             ' Posnetek je verjetno prekratek ali napačnega formata.')
 
-  elif os.path.isfile(args.path):
-    nrsg(args.path, args.border, args.verbose, args.out_path)
+  elif os.path.isfile(args.in_path):
+    nrsg(args.in_path, args.border, args.verbose, args.out_path)
 
 
 if __name__ == '__main__':
@@ -69,26 +69,34 @@ if __name__ == '__main__':
     description = '''Ta skripta izvede odstranitev šuma s postopkom 
      spektralnega razločevanja (ang. noise reduction using spectral gating, 
      NRSG).''')
-  ap.add_argument('-p','--path',
+  ap._action_groups.pop()
+  required = ap.add_argument_group('Obvezni argumenti')
+  optional = ap.add_argument_group('Opcijski argumenti')
+  required.add_argument('-i', '--in_path',
     type = str,
-    default = 'pot/do/dir/',
-    help = '''Direktorij z datotekami WAV / pot do posamezne datoteke WAV.''')
-  ap.add_argument('-m','--maxdepth',
+    required = True,
+    metavar = 'INPUT_PATH',
+    help = '''Direktorij z datotekami WAV ali pot do posamezne datoteke WAV.''')
+  required.add_argument('-o', '--out_path',
+    type = str,
+    required = True,
+    metavar = 'OUTPUT_PATH',
+    help = 'Pot kamor se bodo shranjevale WAV datoteke.')
+  optional.add_argument('-m', '--maxdepth',
     type = int,
     default = 3,
+    metavar = 'MAX_DEPTH',
     help = 'Maksimalna globina poddirektorijev v katerih iščemo datoteke WAV.')
-  ap.add_argument('-o','--out_path',
-    type = str,
-    default = './processed_audio/',
-    help = 'Pot, kamor se bodo shranjevale WAV datoteke.')
-  ap.add_argument('-b','--border',
+  optional.add_argument('-b', '--border',
     nargs=2,
     type = float,
     default = [.5, .5],
+    metavar = 'NOISE_BORDER',
     help = 'Meje šuma v sekundah.')
-  ap.add_argument('-v','--verbose',
+  optional.add_argument('-v', '--verbose',
     action='count',
-    default=0)
+    default=0,
+    help = 'Grafični prikaz različnih korakov v postopku razšumljanja.')
 
   args = ap.parse_args()
   main()

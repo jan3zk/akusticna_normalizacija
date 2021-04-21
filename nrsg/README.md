@@ -6,10 +6,10 @@ Postopek temelji na algoritmu iz programa [Audacity](https://wiki.audacityteam.o
 
 Namestitev zahtevanih paketov lahko izvedemo z ukazom ```pip install -r requirements.txt```.
 
-## NRSG na posameznem posnetku
+## Odstranitev šuma na posameznem posnetku
 
-Odstranitev šuma na posemeznem posnetku se izvede z ukazom ```python nrsg.py -p pot/do/posnetka.wav -o razšumljeni/posnetek.wav```. Postopek uporabi del posnetka, ki ne vsebuje govora, za izračun moči šuma. Predpostavlja se, da obstaja začetni in končni premor v katerem ni govora. Privzeta dolžina obeh premorov je 0.5 sekunde, lahko pa ju poljubno nastavimo z argumentom ```-b``` (npr. 0.3 s začetnega in 0.4 s končnega premora dobimo z ```python nrsg.py -v -f pot/do/posnetka.wav -b 0.3 0.4```. Podrobnejši opis vhodnih argumentov dobimo z ```python nrsg.py -h```.
+Odstranitev šuma na posemeznem posnetku se izvede z ukazom ```python nrsg.py -i vhodni/posnetek.wav -o razšumljeni/posnetek.wav```. Postopek uporabi del posnetka, ki ne vsebuje govora, za izračun moči šuma. Predpostavlja se, da obstaja začetni in končni premor v katerem ni govora. Privzeta dolžina obeh premorov je 0.5 sekunde, lahko pa ju poljubno nastavimo z argumentom ```-b``` (npr. 0.3 s začetnega in 0.4 s končnega premora dobimo z ```python nrsg.py -i vhodni/posnetek.wav -o razsumljeni/posnetek.wav -b 0.3 0.4```. Podrobnejši opis vhodnih argumentov dobimo z ```python nrsg.py -h```.
 
 ## Procesiranje množice posnetkov
 
-Izvedba postopka na posnetkih v danem direktoriju se izvede z ```python nrsg.py -p dir/originalni/ -o dir/razsumljeni/```. Podrobnejši opis vhodnih argumentov skripte dobimo s ```python nrsg.py -h```.
+Izvedba postopka na posnetkih v danem direktoriju se izvede z ```python nrsg.py -i dir/originalni/ -o dir/razsumljeni/```. Podrobnejši opis vhodnih argumentov skripte dobimo s ```python nrsg.py -h```.

@@ -1,8 +1,8 @@
 from __future__ import print_function
 import tensorflow as tf
 import numpy as np
-import sys
-sys.path.insert(1,'/home/santi-pdp_segan/')
+#import sys
+#sys.path.insert(1,'/path/to/santi-pdp_segan/')
 from model import SEGAN, SEAE
 import os
 from tensorflow.python.client import device_lib

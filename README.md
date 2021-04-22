@@ -1,8 +1,10 @@
 # Akustična normalizacija govornih posnetkov
 
-## Odstranjevanje šuma s pomočjo spektralnega razločevanja (ang. Noise Reduction using Spectral Gating, NRSG)
+[NRSG](#postopek-NRSG), [DFL](#postopek-DFL), [SEGAN](#postopek-SEGAN)
 
-Postopek temelji na algoritmu iz programa [Audacity](https://wiki.audacityteam.org/wiki/How_Audacity_Noise_Reduction_Works) oziroma njegovi reimplementaciji iz repozitorija [noisereduce](https://github.com/timsainb/noisereduce).
+## Postopek NRSG
+
+Postopek odstranjevanja šuma s pomočjo spektralnega razločevanja (ang. Noise Reduction using Spectral Gating, NRSG) temelji na algoritmu iz programa [Audacity](https://wiki.audacityteam.org/wiki/How_Audacity_Noise_Reduction_Works) oziroma njegovi reimplementaciji iz repozitorija [noisereduce](https://github.com/timsainb/noisereduce).
 
 ### Namestitev
 
@@ -18,9 +20,9 @@ Izvedba postopka na posnetkih v danem direktoriju se izvede z ```python nrsg.py 
 
 
 
-## Odstranjevanje šuma s postopkom DFL (ang. deep feature losses)
+## Postopek DFL
 
-Programska koda temelji na repozitoriju [SpeechDenoisingWithDeepFeatureLosses](https://github.com/francoisgermain/SpeechDenoisingWithDeepFeatureLosses).
+Programska koda za odstranjevanje šuma s postopkom DFL (ang. deep feature losses) temelji na repozitoriju [SpeechDenoisingWithDeepFeatureLosses](https://github.com/francoisgermain/SpeechDenoisingWithDeepFeatureLosses).
 
 ### Namestitev
 
@@ -32,11 +34,11 @@ Odstranitev šuma iz posnetkov v danem direktoriju se izvede s pomočjo ukaza ``
 
 
 
-## Odstranjevanje šuma s postopkom SEGAN (ang. Speech Enhancement Generative Adversarial Network)
+## Postopek SEGAN
 
 ### Namestitev
 
-Programska implementacija se opira na kodo iz repozitorija [santi-pdp/segan](https://github.com/santi-pdp/segan), prvotnih avtorjev tega postopka, zato je potrebna namestitev tega repozitorija. Namestitev ostalih paketov se izvede z ukazom ```pip install -r requirements.txt```.
+Programska implementacija odstranjevanja šuma s postopkom SEGAN (ang. Speech Enhancement Generative Adversarial Network) se opira na kodo iz repozitorija [santi-pdp/segan](https://github.com/santi-pdp/segan), prvotnih avtorjev tega postopka, zato je potrebna namestitev tega repozitorija. Namestitev ostalih paketov se izvede z ukazom ```pip install -r requirements.txt```.
 
 ### SEGAN na posameznem posnetku
 

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from glob import glob
 import os
 import csv
@@ -81,10 +82,10 @@ if __name__ == '__main__':
     type = str,
     required = True,
     metavar = 'OUTPUT_PATH',
-    help = 'Pot kamor se bodo shranjevale WAV datoteke.')
+    help = 'Pot kamor se bodo shranjevale razšumljene datoteke WAV.')
   optional.add_argument('-m', '--maxdepth',
     type = int,
-    default = 3,
+    default = 1,
     metavar = 'MAX_DEPTH',
     help = 'Maksimalna globina poddirektorijev v katerih iščemo datoteke WAV.')
   optional.add_argument('-b', '--border',

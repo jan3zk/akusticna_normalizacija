@@ -53,4 +53,7 @@ Izvedba postopka na vseh posnetkih v določenem direktoriju in poddirektorijih s
 
 ## Vrednotenje kakovosti govornih posnetkov
 
-Pri izračunu kakovost zvočnih posnetkov, obdelanih po obravnavanih postopkih razšumljanja, se opiramo na programsko opremo iz repozitorija [Speechmetrics](https://github.com/aliutkus/speechmetrics). Postopek vrednotenja lahko izvedemo z ukazom ```python eval.py -i /mapa/z/vhodnimi/posnetki/ -o mere.csv```.
+Izračunu kakovost zvočnih posnetkov, obdelanih po obravnavanih postopkih razšumljanja, se opira na programsko opremo iz repozitorija [speechmetrics](https://github.com/aliutkus/speechmetrics), ki omogoča izračun tako različnih abolutnih mer ([MOSNet](https://arxiv.org/abs/1904.08352), [SRMR](https://github.com/jfsantos/SRMRpy)) kakor tudi relativnih mer kakovosti govornih posnetkov ([PESQ](https://github.com/vBaiCai/python-pesq), [STOI](https://github.com/mpariente/pystoi), [SISDR](https://github.com/sigsep/bsseval/issues/3#issuecomment-494995846)).
+
+Postopek vrednotenja lahko izvedemo z ukazom ```python eval.py -i /mapa/z/vhodnimi/posnetki/ -o mere.csv```.
+Poleg speechmetrics smo implementirali še SNR. Uporaba: ```python snr.py -d ../data/testset/rnd500/nrsg_denoised/ -m 1 -o ../data/testset/rnd500/snr_scores_nrsg.csv```.

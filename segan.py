@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-import sys
-#sys.path.insert(1,'/path/to/santi-pdp_segan/')
 from __future__ import print_function
+import sys
+sys.path.insert(1,'/path/to/santi-pdp_segan/')
 import tensorflow as tf
 import numpy as np
 from model import SEGAN, SEAE

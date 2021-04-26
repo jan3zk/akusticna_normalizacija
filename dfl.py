@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
-#sys.path.insert(1,'/path/to/SpeechDenoisingWithDeepFeatureLosses/')
+sys.path.insert(1,'/path/to/SpeechDenoisingWithDeepFeatureLosses/')
 from model import *
 from data_import import *
 import getopt

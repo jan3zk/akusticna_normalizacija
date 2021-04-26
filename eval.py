@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
-sys.path.insert(1,'/media/sda1/janezk/projects/acoustic_norm/quality_measures/speechmetrics')
-#sys.path.insert(1,'/path/to/speechmetrics')
+sys.path.insert(1,'/path/to/speechmetrics')
 import os
 from glob import glob
 import csv

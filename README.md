@@ -1,6 +1,6 @@
 # Akustična normalizacija govornih posnetkov
 
-[NRSG](#postopek-NRSG), [DFL](#postopek-DFL), [SEGAN](#postopek-SEGAN)
+V tem repozitoriju so zbrani različni postopki akustične normalizacije govornih posnetkov, kot so [NRSG](#postopek-NRSG), [DFL](#postopek-DFL), [SEGAN](#postopek-SEGAN). 
 
 ## Postopek NRSG
 
@@ -18,8 +18,6 @@ Odstranitev šuma na posemeznem posnetku se izvede z ukazom ```python nrsg.py -i
 
 Izvedba postopka na posnetkih v danem direktoriju se izvede z ```python nrsg.py -i dir/originalni/ -o dir/razsumljeni/```. Podrobnejši opis vhodnih argumentov skripte dobimo s ```python nrsg.py -h```.
 
-
-
 ## Postopek DFL
 
 Programska koda za odstranjevanje šuma s postopkom DFL (ang. deep feature losses) temelji na repozitoriju [SpeechDenoisingWithDeepFeatureLosses](https://github.com/francoisgermain/SpeechDenoisingWithDeepFeatureLosses).
@@ -32,13 +30,13 @@ Za namestitev zahtevanih paketov glej poglavje [setup](https://github.com/franco
 
 Odstranitev šuma iz posnetkov v danem direktoriju se izvede s pomočjo ukaza ```python dfl.py -i /mapa/z/vhodnimi/posnetki/ -o /mapa/z/razsumljenimi/posnetki/ -m /mapa/z/modelom/SEnet/```.
 
-
-
 ## Postopek SEGAN
+
+Programska implementacija odstranjevanja šuma s postopkom SEGAN (ang. Speech Enhancement Generative Adversarial Network) se opira na kodo iz repozitorija [santi-pdp/segan](https://github.com/santi-pdp/segan), prvotnih avtorjev tega postopka.
 
 ### Namestitev
 
-Programska implementacija odstranjevanja šuma s postopkom SEGAN (ang. Speech Enhancement Generative Adversarial Network) se opira na kodo iz repozitorija [santi-pdp/segan](https://github.com/santi-pdp/segan), prvotnih avtorjev tega postopka, zato je potrebna namestitev tega repozitorija. Namestitev ostalih paketov se izvede z ukazom ```pip install -r requirements.txt```.
+Za namestitev zahtevanih paketov glej poglavje [Dependencies](https://github.com/santi-pdp/segan#dependencies).
 
 ### SEGAN na posameznem posnetku
 
@@ -48,12 +46,8 @@ Odstranitev šuma na posemeznem posnetku se izvede z zagonom skripte ```clean_wa
 
 Izvedba postopka na vseh posnetkih v določenem direktoriju in poddirektorijih se izvede s ```python segan.py --init_noise_std 0. --save_path pot/do/segan_v1.1 --batch_size 100 --g_nl prelu --weights SEGAN-41700 --preemph 0.95 --bias_deconv True --bias_downconv True --bias_D_conv True --in_dir pot/do/posnetkov --save_clean_path pot/do/razsumljenih/posnetkov```. Pred zagonom je potrebno datoteko segan.py najprej kopirati v direktorij repozitorija santi-pdp/segan.
 
-
-
-
 ## Vrednotenje kakovosti govornih posnetkov
 
-Izračunu kakovost zvočnih posnetkov, obdelanih po obravnavanih postopkih razšumljanja, se opira na programsko opremo iz repozitorija [speechmetrics](https://github.com/aliutkus/speechmetrics), ki omogoča izračun tako različnih abolutnih mer ([MOSNet](https://arxiv.org/abs/1904.08352), [SRMR](https://github.com/jfsantos/SRMRpy)) kakor tudi relativnih mer kakovosti govornih posnetkov ([PESQ](https://github.com/vBaiCai/python-pesq), [STOI](https://github.com/mpariente/pystoi), [SISDR](https://github.com/sigsep/bsseval/issues/3#issuecomment-494995846)).
+Izračunu kakovost zvočnih posnetkov, obdelanih po obravnavanih postopkih razšumljanja, se opira na programsko opremo iz repozitorija [speechmetrics](https://github.com/aliutkus/speechmetrics), ki omogoča izračun tako različnih abolutnih mer ([MOSNet](https://arxiv.org/abs/1904.08352), [SRMR](https://github.com/jfsantos/SRMRpy)) kakor tudi relativnih mer kakovosti govornih posnetkov ([PESQ](https://github.com/vBaiCai/python-pesq), [STOI](https://github.com/mpariente/pystoi), [SISDR](https://github.com/sigsep/bsseval/issues/3#issuecomment-494995846)). Poleg mer, ki jih zagotavlja speechmetrics, smo udejanjili še razmerje signal-šum (ang. signal to noise ratio, SNR).
 
-Postopek vrednotenja lahko izvedemo z ukazom ```python eval.py -i /mapa/z/vhodnimi/posnetki/ -o mere.csv```.
-Poleg speechmetrics smo implementirali še SNR. Uporaba: ```python snr.py -d ../data/testset/rnd500/nrsg_denoised/ -m 1 -o ../data/testset/rnd500/snr_scores_nrsg.csv```.
+Postopek vrednotenja lahko izvedemo z ukazom ```python eval.py -i /mapa/z/vhodnimi/posnetki/ -r /mapa/z/referenčnimi/posnetki/ -o mere.csv ```.

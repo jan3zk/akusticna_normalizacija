@@ -6,23 +6,11 @@ V tem repozitoriju so zbrani različni postopki akustične normalizacije govorni
 
 Postopek odstranjevanja šuma s pomočjo spektralnega razločevanja (ang. Noise Reduction using Spectral Gating, NRSG) temelji na algoritmu iz programa [Audacity](https://wiki.audacityteam.org/wiki/How_Audacity_Noise_Reduction_Works) oziroma njegovi reimplementaciji iz repozitorija [noisereduce](https://github.com/timsainb/noisereduce).
 
-### Odstranitev šuma na posameznem posnetku
-
-Odstranitev šuma na posameznem posnetku se izvede z ukazom ```python nrsg.py -i vhodni/posnetek.wav -o razsumljeni/posnetek.wav```. Za izračun moči šuma postopek uporabi del posnetka, ki ne vsebuje govora. Predpostavljamo, da obstaja začetni in končni premor v katerem ni govora. Privzeta dolžina obeh premorov je 0.5 sekunde, lahko pa ju poljubno nastavimo z argumentom ```-b``` (npr. 0.3 s začetnega in 0.4 s končnega premora dobimo z 
+Odstranitev šuma na posameznem posnetku ali vseh posnetkih v danem direktoriju se izvede z ukazom 
 ```
-python nrsg.py -i vhodni/posnetek.wav -o razsumljeni/posnetek.wav -b 0.3 0.4
+python nrsg.py -i vhodni_wav_ali_dir -o razsumljeni_wav_ali_dir
 ```
-Podrobnejši opis vhodnih argumentov dobimo z 
-```
-python nrsg.py -h
-```
-
-### Procesiranje množice posnetkov
-
-Izvedba postopka na posnetkih v danem direktoriju se izvede z 
-```
-python nrsg.py -i dir/originalni/ -o dir/razsumljeni/
-```
+Za izračun moči šuma postopek uporabi del posnetka, ki ne vsebuje govora. Predpostavljamo, da obstaja začetni in končni premor v katerem ni govora. Privzeta dolžina obeh premorov je 0.5 sekunde, lahko pa ju poljubno nastavimo z argumentom ```-b``` (npr. 0.3 s začetnega in 0.4 s končnega premora dobimo, če zgornjemu ukazu dodamo ```-b 0.3 0.4```). Podrobnejši opis vhodnih argumentov dobimo z ```python nrsg.py -h```.
 
 ## Postopek DFL
 

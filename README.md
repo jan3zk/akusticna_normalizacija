@@ -39,7 +39,7 @@ Pred zagonom je potrebno [nastaviti](https://github.com/JanezKrizaj/akusticna_no
 
 ## Postopek NSNet
 
-Za izboljšanje govornih posnetkov s postopkom NSNet (ang. Noise Suppression Network) se uporablja programsko orodje iz repozitorija [DNS-Challenge](https://github.com/microsoft/DNS-Challenge).
+Izboljšanje govornih posnetkov s postopkom NSNet (ang. Noise Suppression Network) temelji na uporabi programske opreme iz repozitorija [DNS-Challenge](https://github.com/microsoft/DNS-Challenge).
 
 Namestitev zahtevanih programskih paketov izvedemo z ukazi
 ```

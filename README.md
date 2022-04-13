@@ -34,13 +34,24 @@ Programska implementacija odstranjevanja šuma s postopkom SEGAN (ang. Speech En
 
 Za namestitev zahtevanih paketov glej poglavje [Dependencies](https://github.com/santi-pdp/segan#dependencies).
 
-### SEGAN na posameznem posnetku
+### Izvedba SEGAN na posameznem posnetku
 
 Odstranitev šuma na posameznem posnetku se izvede z zagonom skripte ```clean_wav.sh``` iz repozitorija santi-pdp/segan.
 
 ### Procesiranje množice posnetkov
 
 Izvedba postopka na vseh posnetkih v določenem direktoriju in poddirektorijih se izvede s ```python segan.py --init_noise_std 0. --save_path pot/do/segan_v1.1 --batch_size 100 --g_nl prelu --weights SEGAN-41700 --preemph 0.95 --bias_deconv True --bias_downconv True --bias_D_conv True --in_dir pot/do/posnetkov --save_clean_path pot/do/razsumljenih/posnetkov```. Pred zagonom je potrebno [nastaviti](https://github.com/JanezKrizaj/akusticna_normalizacija/blob/master/segan.py#L4) pot do repozitorija santi-pdp/segan.
+
+## Postopek NSNet
+
+Za izboljšanje govornih posnetkov s postopkom NSNet (ang. Noise Suppression Network) se uporablja programsko orodje iz repozitorija [DNS-Challenge](https://github.com/microsoft/DNS-Challenge).
+
+Namestitev zahtevanih programskih paketov izvedemo z ukazi
+```pip install pysoundfile```
+```pip install onnxruntime```
+
+Za izvedbo razšumljanja zvočnih posnetkov je potrebno najprej izvesti klon repozitorija DNS-Challenge in se premakniti v direktorij DNS-Challenge/NSNet2-baseline. Razšumljanje izvedemo z ukazom
+```python run_nsnet2.py  --input vhodni_dir_ali_wav --output izhodni_dir_ali_wav```
 
 ## Vrednotenje kakovosti govornih posnetkov
 

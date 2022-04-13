@@ -47,8 +47,10 @@ Izvedba postopka na vseh posnetkih v določenem direktoriju in poddirektorijih s
 Za izboljšanje govornih posnetkov s postopkom NSNet (ang. Noise Suppression Network) se uporablja programsko orodje iz repozitorija [DNS-Challenge](https://github.com/microsoft/DNS-Challenge).
 
 Namestitev zahtevanih programskih paketov izvedemo z ukazi
-```pip install pysoundfile```
-```pip install onnxruntime```
+```
+pip install pysoundfile
+pip install onnxruntime
+```
 
 Za izvedbo razšumljanja zvočnih posnetkov je potrebno najprej izvesti klon repozitorija DNS-Challenge in se premakniti v direktorij DNS-Challenge/NSNet2-baseline. Razšumljanje izvedemo z ukazom
 ```python run_nsnet2.py  --input vhodni_dir_ali_wav --output izhodni_dir_ali_wav```

@@ -16,11 +16,7 @@ Za izračun moči šuma postopek uporabi del posnetka, ki ne vsebuje govora. Pre
 
 Programska koda za odstranjevanje šuma s postopkom DFL (ang. deep feature losses) temelji na repozitoriju [SpeechDenoisingWithDeepFeatureLosses](https://github.com/francoisgermain/SpeechDenoisingWithDeepFeatureLosses).
 
-### Namestitev
-
 Za namestitev zahtevanih paketov glej poglavje [setup](https://github.com/francoisgermain/SpeechDenoisingWithDeepFeatureLosses#setup).
-
-### Uporaba
 
 Odstranitev šuma iz posnetkov v danem direktoriju se izvede s pomočjo ukaza 
 ```
@@ -31,15 +27,9 @@ python dfl.py -i /mapa/z/vhodnimi/posnetki/ -o /mapa/z/razsumljenimi/posnetki/ -
 
 Programska implementacija odstranjevanja šuma s postopkom SEGAN (ang. Speech Enhancement Generative Adversarial Network) se opira na kodo iz repozitorija [santi-pdp/segan](https://github.com/santi-pdp/segan), prvotnih avtorjev tega postopka.
 
-### Namestitev
-
 Za namestitev zahtevanih paketov glej poglavje [Dependencies](https://github.com/santi-pdp/segan#dependencies).
 
-### Izvedba SEGAN na posameznem posnetku
-
 Odstranitev šuma na posameznem posnetku se izvede z zagonom skripte ```clean_wav.sh``` iz repozitorija santi-pdp/segan.
-
-### Procesiranje množice posnetkov
 
 Izvedba postopka na vseh posnetkih v določenem direktoriju in poddirektorijih se izvede s 
 ```

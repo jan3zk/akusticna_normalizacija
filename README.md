@@ -40,7 +40,11 @@ Odstranitev šuma na posameznem posnetku se izvede z zagonom skripte ```clean_wa
 
 ### Procesiranje množice posnetkov
 
-Izvedba postopka na vseh posnetkih v določenem direktoriju in poddirektorijih se izvede s ```python segan.py --init_noise_std 0. --save_path pot/do/segan_v1.1 --batch_size 100 --g_nl prelu --weights SEGAN-41700 --preemph 0.95 --bias_deconv True --bias_downconv True --bias_D_conv True --in_dir pot/do/posnetkov --save_clean_path pot/do/razsumljenih/posnetkov```. Pred zagonom je potrebno [nastaviti](https://github.com/JanezKrizaj/akusticna_normalizacija/blob/master/segan.py#L4) pot do repozitorija santi-pdp/segan.
+Izvedba postopka na vseh posnetkih v določenem direktoriju in poddirektorijih se izvede s 
+```
+python segan.py --init_noise_std 0. --save_path pot/do/segan_v1.1 --batch_size 100 --g_nl prelu --weights SEGAN-41700 --preemph 0.95 --bias_deconv True --bias_downconv True --bias_D_conv True --in_dir pot/do/posnetkov --save_clean_path pot/do/razsumljenih/posnetkov
+```.
+Pred zagonom je potrebno [nastaviti](https://github.com/JanezKrizaj/akusticna_normalizacija/blob/master/segan.py#L4) pot do repozitorija santi-pdp/segan.
 
 ## Postopek NSNet
 
@@ -53,7 +57,7 @@ pip install onnxruntime
 ```
 
 Za izvedbo razšumljanja zvočnih posnetkov je potrebno najprej izvesti klon repozitorija DNS-Challenge in se premakniti v direktorij DNS-Challenge/NSNet2-baseline. Razšumljanje izvedemo z ukazom
-```python run_nsnet2.py  --input vhodni_dir_ali_wav --output izhodni_dir_ali_wav```
+```python run_nsnet2.py  --input vhodni_dir_ali_wav --output izhodni_dir_ali_wav```.
 
 ## Vrednotenje kakovosti govornih posnetkov
 

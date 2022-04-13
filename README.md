@@ -8,11 +8,21 @@ Postopek odstranjevanja šuma s pomočjo spektralnega razločevanja (ang. Noise 
 
 ### Odstranitev šuma na posameznem posnetku
 
-Odstranitev šuma na posameznem posnetku se izvede z ukazom ```python nrsg.py -i vhodni/posnetek.wav -o razsumljeni/posnetek.wav```. Za izračun moči šuma postopek uporabi del posnetka, ki ne vsebuje govora. Predpostavljamo, da obstaja začetni in končni premor v katerem ni govora. Privzeta dolžina obeh premorov je 0.5 sekunde, lahko pa ju poljubno nastavimo z argumentom ```-b``` (npr. 0.3 s začetnega in 0.4 s končnega premora dobimo z ```python nrsg.py -i vhodni/posnetek.wav -o razsumljeni/posnetek.wav -b 0.3 0.4```. Podrobnejši opis vhodnih argumentov dobimo z ```python nrsg.py -h```.
+Odstranitev šuma na posameznem posnetku se izvede z ukazom ```python nrsg.py -i vhodni/posnetek.wav -o razsumljeni/posnetek.wav```. Za izračun moči šuma postopek uporabi del posnetka, ki ne vsebuje govora. Predpostavljamo, da obstaja začetni in končni premor v katerem ni govora. Privzeta dolžina obeh premorov je 0.5 sekunde, lahko pa ju poljubno nastavimo z argumentom ```-b``` (npr. 0.3 s začetnega in 0.4 s končnega premora dobimo z 
+```
+python nrsg.py -i vhodni/posnetek.wav -o razsumljeni/posnetek.wav -b 0.3 0.4
+```
+Podrobnejši opis vhodnih argumentov dobimo z 
+```
+python nrsg.py -h
+```
 
 ### Procesiranje množice posnetkov
 
-Izvedba postopka na posnetkih v danem direktoriju se izvede z ```python nrsg.py -i dir/originalni/ -o dir/razsumljeni/```. Podrobnejši opis vhodnih argumentov skripte dobimo s ```python nrsg.py -h```.
+Izvedba postopka na posnetkih v danem direktoriju se izvede z 
+```
+python nrsg.py -i dir/originalni/ -o dir/razsumljeni/
+```
 
 ## Postopek DFL
 
@@ -24,7 +34,10 @@ Za namestitev zahtevanih paketov glej poglavje [setup](https://github.com/franco
 
 ### Uporaba
 
-Odstranitev šuma iz posnetkov v danem direktoriju se izvede s pomočjo ukaza ```python dfl.py -i /mapa/z/vhodnimi/posnetki/ -o /mapa/z/razsumljenimi/posnetki/ -m /mapa/z/modelom/SEnet/```.
+Odstranitev šuma iz posnetkov v danem direktoriju se izvede s pomočjo ukaza 
+```
+python dfl.py -i /mapa/z/vhodnimi/posnetki/ -o /mapa/z/razsumljenimi/posnetki/ -m /mapa/z/modelom/SEnet/
+```
 
 ## Postopek SEGAN
 
@@ -57,10 +70,16 @@ pip install onnxruntime
 ```
 
 Za izvedbo razšumljanja zvočnih posnetkov je potrebno najprej izvesti klon repozitorija DNS-Challenge in se premakniti v direktorij DNS-Challenge/NSNet2-baseline. Razšumljanje izvedemo z ukazom
-```python run_nsnet2.py  --input vhodni_dir_ali_wav --output izhodni_dir_ali_wav```.
+```
+python run_nsnet2.py  --input vhodni_dir_ali_wav --output izhodni_dir_ali_wav
+```
 
 ## Vrednotenje kakovosti govornih posnetkov
 
 Izračunu kakovost zvočnih posnetkov, obdelanih po obravnavanih postopkih razšumljanja, se opira na programsko opremo iz repozitorija [speechmetrics](https://github.com/aliutkus/speechmetrics), ki omogoča izračun tako različnih absolutnih mer ([MOSNet](https://arxiv.org/abs/1904.08352), [SRMR](https://github.com/jfsantos/SRMRpy)) kakor tudi relativnih mer kakovosti govornih posnetkov ([PESQ](https://github.com/vBaiCai/python-pesq), [STOI](https://github.com/mpariente/pystoi), idr.). Poleg mer, ki jih zagotavlja speechmetrics, smo udejanjili še razmerje signal-šum (ang. signal to noise ratio, SNR).
 
-Postopek vrednotenja lahko izvedemo z ukazom ```python eval.py -i /mapa/z/vhodnimi/posnetki/ -r /mapa/z/referenčnimi/posnetki/ -o mere.csv```. Pred zagonom je potrebno [nastaviti](https://github.com/JanezKrizaj/akusticna_normalizacija/blob/master/eval.py#L3) pot do repozitorija speechmetrics.
+Postopek vrednotenja lahko izvedemo z ukazom
+```
+python eval.py -i /mapa/z/vhodnimi/posnetki/ -r /mapa/z/referenčnimi/posnetki/ -o mere.csv
+```
+Pred zagonom je potrebno [nastaviti](https://github.com/JanezKrizaj/akusticna_normalizacija/blob/master/eval.py#L3) pot do repozitorija speechmetrics.

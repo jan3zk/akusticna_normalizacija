@@ -47,3 +47,22 @@ Izvedba postopka na vseh posnetkih v določenem direktoriju in poddirektorijih s
 Izračunu kakovost zvočnih posnetkov, obdelanih po obravnavanih postopkih razšumljanja, se opira na programsko opremo iz repozitorija [speechmetrics](https://github.com/aliutkus/speechmetrics), ki omogoča izračun tako različnih absolutnih mer ([MOSNet](https://arxiv.org/abs/1904.08352), [SRMR](https://github.com/jfsantos/SRMRpy)) kakor tudi relativnih mer kakovosti govornih posnetkov ([PESQ](https://github.com/vBaiCai/python-pesq), [STOI](https://github.com/mpariente/pystoi), idr.). Poleg mer, ki jih zagotavlja speechmetrics, smo udejanjili še razmerje signal-šum (ang. signal to noise ratio, SNR).
 
 Postopek vrednotenja lahko izvedemo z ukazom ```python eval.py -i /mapa/z/vhodnimi/posnetki/ -r /mapa/z/referenčnimi/posnetki/ -o mere.csv```. Pred zagonom je potrebno [nastaviti](https://github.com/JanezKrizaj/akusticna_normalizacija/blob/master/eval.py#L3) pot do repozitorija speechmetrics.
+
+## How to cite
+
+If you use this tool in your research work, please cite it as follows:
+
+**APA**  
+Križaj, J., Dobrišek, S., & Žganec Gros, J. (2024). *Acoustic-normalization-sl 1.0: Acoustic normalization of Slovene speech recordings* [Computer software].  
+Faculty of Electrical Engineering, University of Ljubljana. Available at: [https://github.com/jan3zk/akusticna_normalizacija](https://github.com/jan3zk/akusticna_normalizacija)
+
+**BibTeX**
+```bibtex
+@misc{acousticnormalization_sl_1_0,
+  author       = {Križaj, Janez and Dobrišek, Simon and Žganec Gros, Jerneja},
+  title        = {Acoustic-normalization-sl 1.0: Acoustic normalization of Slovene speech recordings},
+  year         = {2024},
+  howpublished = {\url{https://github.com/jan3zk/akusticna_normalizacija}},
+  note         = {Faculty of Electrical Engineering, University of Ljubljana}
+}
+```
